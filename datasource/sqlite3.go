@@ -4,20 +4,24 @@ package datasource
 type Sqlite3Datasource struct {
 }
 
-func NewSqlite3Datasource(source string) *Sqlite3Datasource {
+func NewSqlite3Datasource(source string) (*Sqlite3Datasource, error) {
 	sqlite3 := &Sqlite3Datasource{}
 
-	return sqlite3
+	return sqlite3, nil
 }
 
-func (sqlite3 *Sqlite3Datasource) RawQuery(query string) string {
-	return ""
+func (sqlite3 *Sqlite3Datasource) Close() {
+
 }
 
-func (sqlite3 *Sqlite3Datasource) GetNameFromID(id int) string {
-	return ""
+func (sqlite3 *Sqlite3Datasource) RawQuery(query string, args ...interface{}) (interface{}, error) {
+	return "", nil
 }
 
-func (sqlite3 *Sqlite3Datasource) GetIDFromName(name string) int {
-	return 0
+func (sqlite3 *Sqlite3Datasource) GetTypeNameFromID(id int) (string, error) {
+	return "", nil
+}
+
+func (sqlite3 *Sqlite3Datasource) GetTypeIDFromName(name string) (int, error) {
+	return 0, nil
 }
