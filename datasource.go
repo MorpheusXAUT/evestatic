@@ -2,7 +2,8 @@
 package evestatic
 
 type Datasource interface {
-	RawQuery(query string) string
-	GetNameFromID(id int) string
-	GetIDFromName(name string) int
+	Close()
+	RawQuery(query string, args ...interface{}) (interface{}, error)
+	GetTypeNameFromID(id int) (string, error)
+	GetTypeIDFromName(name string) (int, error)
 }
